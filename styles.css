@@ -28,7 +28,7 @@ body::before {
         radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.05) 0%, transparent 25%),
         radial-gradient(circle at 75% 75%, rgba(34, 139, 34, 0.05) 0%, transparent 25%);
     pointer-events: none;
-    z-index: -1;
+    z-index: -999;
 }
 
 .container {
@@ -269,6 +269,8 @@ body::before {
         radial-gradient(circle, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
     background-size: 20px 20px;
     animation: formFloat 15s linear infinite;
+    pointer-events: none;
+    z-index: -1;
 }
 
 @keyframes formFloat {
@@ -333,6 +335,8 @@ body::before {
     font-size: 1rem;
     transition: border-color 0.3s ease;
     background: #f8fff8;
+    position: relative;
+    z-index: 10;
 }
 
 .form-group input:focus {
@@ -362,6 +366,8 @@ body::before {
     background: #f8fff8;
     font-family: inherit;
     resize: vertical;
+    position: relative;
+    z-index: 10;
 }
 
 .form-group select:focus,
