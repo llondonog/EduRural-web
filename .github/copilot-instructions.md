@@ -1,54 +1,33 @@
-<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
-- [x] Verify that the copilot-instructions.md file in the .github directory is created.
+# EduRural - Proyecto de Página Web
 
-- [ ] Clarify Project Requirements
-	<!-- Ask for project type, language, and frameworks if not specified. Skip if already provided. -->
+## Descripción del Proyecto
+Página web de inscripción para el proyecto EduRural, una plataforma educativa offline para comunidades rurales.
 
-- [ ] Scaffold the Project
-	<!--
-	Ensure that the previous step has been marked as completed.
-	Call project setup tool with projectType parameter.
-	Run scaffolding command to create project files and folders.
-	Use '.' as the working directory.
-	If no appropriate projectType is available, search documentation using available tools.
-	Otherwise, create the project structure manually using available file creation tools.
-	-->
+## Estado de Completación
+- [x] Archivo copilot-instructions.md creado
+- [x] Requerimientos del proyecto clarificados
+- [x] Estructura del proyecto creada
+- [x] Proyecto personalizado según especificaciones
+- [x] Extensiones requeridas instaladas
+- [x] Proyecto compilado sin errores
+- [x] Tareas creadas y ejecutadas
+- [x] Proyecto lanzado exitosamente
+- [x] Documentación completada
 
-- [ ] Customize the Project
-	<!--
-	Verify that all previous steps have been completed successfully and you have marked the step as completed.
-	Develop a plan to modify codebase according to user requirements.
-	Apply modifications using appropriate tools and user-provided references.
-	Skip this step for "Hello World" projects.
-	-->
+## Características Implementadas
+- Página web responsive con colores verdes, dorados y blancos
+- Formulario de inscripción con validación
+- Modales para misión y visión
+- Sistema de alertas de éxito
+- Integración con Git
+- Servidor local funcionando
 
-- [ ] Install Required Extensions
-	<!-- ONLY install extensions provided mentioned in the get_project_setup_info. Skip this step otherwise and mark as completed. -->
+## Tecnologías Utilizadas
+- HTML5, CSS3, JavaScript vanilla
+- Git para control de versiones
+- Servidor HTTP local para desarrollo
 
-- [ ] Compile the Project
-	<!--
-	Verify that all previous steps have been completed.
-	Install any missing dependencies.
-	Run diagnostics and resolve any issues.
-	Check for markdown files in project folder for relevant instructions on how to do this.
-	-->
-
-- [ ] Create and Run Task
-	<!--
-	Verify that all previous steps have been completed.
-	Check https://code.visualstudio.com/docs/debugtest/tasks to determine if the project needs a task. If so, use the create_and_run_task to create and launch a task based on package.json, README.md, and project structure.
-	Skip this step otherwise.
-	 -->
-
-- [ ] Launch the Project
-	<!--
-	Verify that all previous steps have been completed.
-	Prompt user for debug mode, launch only if confirmed.
-	 -->
-
-- [ ] Ensure Documentation is Complete
-	<!--
-	Verify that all previous steps have been completed.
-	Verify that README.md and the copilot-instructions.md file in the .github directory exists and contains current project information.
-	Clean up the copilot-instructions.md file in the .github directory by removing all HTML comments.
-	 -->
+## Próximos Pasos
+1. Subir a GitHub
+2. Configurar GitHub Pages para deployment
+3. Configurar servicio de email (EmailJS/Formspree)

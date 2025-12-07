@@ -95,7 +95,7 @@ inscriptionForm.addEventListener('submit', async (e) => {
     // Deshabilitar botón durante el envío
     const submitBtn = inscriptionForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Enviando...';
+    submitBtn.textContent = '✨ Procesando tu inscripción... ✨';
     submitBtn.disabled = true;
     
     try {
@@ -103,8 +103,13 @@ inscriptionForm.addEventListener('submit', async (e) => {
         const result = await sendEmail(formData);
         
         if (result.success) {
+            // Agregar efecto de celebración
+            createConfetti();
+            
             // Mostrar modal de éxito
-            openModal('successModal');
+            setTimeout(() => {
+                openModal('successModal');
+            }, 500);
             
             // Limpiar formulario
             inscriptionForm.reset();
@@ -112,11 +117,11 @@ inscriptionForm.addEventListener('submit', async (e) => {
             // Log para desarrollo (puedes remover esto en producción)
             console.log('Inscripción exitosa:', formData);
         } else {
-            alert('Hubo un error al procesar tu inscripción. Por favor, intenta nuevamente.');
+            alert('¡Ups! 😅 Algo no salió como esperábamos. ¿Podrías intentar nuevamente? ¡Estamos emocionados de conocerte! 💚');
         }
     } catch (error) {
         console.error('Error en el proceso de inscripción:', error);
-        alert('Hubo un error al procesar tu inscripción. Por favor, intenta nuevamente.');
+        alert('¡Ups! 😅 Algo no salió como esperábamos. ¿Podrías intentar nuevamente? ¡Estamos emocionados de conocerte! 💚');
     } finally {
         // Rehabilitar botón
         submitBtn.textContent = originalText;
@@ -165,6 +170,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Función para crear efecto de confetti
+function createConfetti() {
+    const colors = ['#ffd700', '#4a7c59', '#2d5016', '#ffed4e', '#90ee90'];
+    const confettiCount = 50;
+    
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.cssText = `
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: ${colors[Math.floor(Math.random() * colors.length)]};
+            left: ${Math.random() * 100}vw;
+            top: -10px;
+            z-index: 10000;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: confetti-fall ${2 + Math.random() * 3}s linear forwards;
+        `;
+        
+        document.body.appendChild(confetti);
+        
+        // Remover confetti después de la animación
+        setTimeout(() => {
+            if (confetti.parentNode) {
+                confetti.parentNode.removeChild(confetti);
+            }
+        }, 5000);
+    }
+}
 
 // Función para manejar el teclado (Escape para cerrar modals)
 document.addEventListener('keydown', (e) => {
