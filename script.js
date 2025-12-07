@@ -48,6 +48,8 @@ async function sendEmail(formData) {
 Nombre completo: ${formData.nombres} ${formData.apellidos}
 Correo electrónico: ${formData.email}
 Ocupación: ${formData.ocupacion}
+Disponibilidad semanal: ${formData.disponibilidad}
+Motivación: ${formData.motivacion}
 Fecha de inscripción: ${new Date().toLocaleDateString('es-ES')}
         
 ¡Una nueva persona quiere unirse al equipo EduRural!`
@@ -76,12 +78,14 @@ inscriptionForm.addEventListener('submit', async (e) => {
         nombres: document.getElementById('nombres').value.trim(),
         apellidos: document.getElementById('apellidos').value.trim(),
         email: document.getElementById('email').value.trim(),
-        ocupacion: document.getElementById('ocupacion').value.trim()
+        ocupacion: document.getElementById('ocupacion').value.trim(),
+        disponibilidad: document.getElementById('disponibilidad').value,
+        motivacion: document.getElementById('motivacion').value.trim()
     };
     
     // Validaciones básicas
-    if (!formData.nombres || !formData.apellidos || !formData.email || !formData.ocupacion) {
-        alert('Por favor, completa todos los campos obligatorios.');
+    if (!formData.nombres || !formData.apellidos || !formData.email || !formData.ocupacion || !formData.disponibilidad || !formData.motivacion) {
+        alert('Por favor, completa todos los campos obligatorios. 📝💚');
         return;
     }
     
