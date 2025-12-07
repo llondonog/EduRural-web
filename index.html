@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduRural - Únete a Nuestro Equipo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>EduRural</h1>
+            </div>
+            <nav class="nav">
+                <button class="btn-secondary" id="misionBtn">Misión</button>
+                <button class="btn-secondary" id="visionBtn">Visión</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Bienvenid@, sé parte de nuestro equipo EduRural</h2>
+                    <p class="hero-subtitle">Transforma vidas. Impacta territorios. Suma tu talento</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <div class="form-container">
+                    <h3>Únete a Nosotros</h3>
+                    <form id="inscriptionForm" class="form">
+                        <div class="form-group">
+                            <label for="nombres">Nombres *</label>
+                            <input type="text" id="nombres" name="nombres" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="apellidos">Apellidos *</label>
+                            <input type="text" id="apellidos" name="apellidos" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ocupacion">Ocupación *</label>
+                            <input type="text" id="ocupacion" name="ocupacion" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Realizar Inscripción</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Misión -->
+    <div id="misionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="misionModal">&times;</span>
+            <h3>Nuestra Misión</h3>
+            <p>Garantizar el acceso a educación digital de calidad en comunidades rurales a través de tecnología offline que respete los conocimientos locales y los integre en los procesos de aprendizaje.</p>
+        </div>
+    </div>
+
+    <!-- Modal para Visión -->
+    <div id="visionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="visionModal">&times;</span>
+            <h3>Nuestra Visión</h3>
+            <p>Consolidarse como la plataforma educativa offline líder en Latinoamérica, con un impacto proyectado de 50.000 estudiantes rurales y la formación de una red de 2.000 docentes certificados.</p>
+        </div>
+    </div>
+
+    <!-- Modal de Éxito -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success">
+            <div class="success-icon">✓</div>
+            <h3>¡Inscripción Exitosa!</h3>
+            <p>Tu inscripción al proyecto EduRural ha sido realizada con éxito. Te contactaremos pronto.</p>
+            <button class="btn-primary" onclick="closeModal('successModal')">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
