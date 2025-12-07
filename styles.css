@@ -399,6 +399,45 @@ body::before {
     font-style: italic;
 }
 
+/* Estilos para input file */
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px dashed #ffd700;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #f8fff8 0%, #fffef7 100%);
+    font-family: inherit;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="file"]:hover {
+    border-color: #ffed4e;
+    background: linear-gradient(135deg, #fffef7 0%, #fff8dc 100%);
+    transform: translateY(-1px);
+}
+
+.form-group input[type="file"]:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 
+        0 0 0 3px rgba(255, 215, 0, 0.2),
+        0 0 20px rgba(255, 215, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.file-help {
+    display: block;
+    color: #4a7c59;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
 .form .btn-primary {
     width: 100%;
     margin-top: 1rem;

@@ -50,6 +50,7 @@ Correo electrónico: ${formData.email}
 Ocupación: ${formData.ocupacion}
 Disponibilidad semanal: ${formData.disponibilidad}
 Motivación: ${formData.motivacion}
+Hoja de vida: ${formData.cv ? formData.cv.name : 'No adjunta'}
 Fecha de inscripción: ${new Date().toLocaleDateString('es-ES')}
         
 ¡Una nueva persona quiere unirse al equipo EduRural!`
@@ -74,19 +75,37 @@ inscriptionForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     // Obtener datos del formulario
+    const cvFile = document.getElementById('cv').files[0];
     const formData = {
         nombres: document.getElementById('nombres').value.trim(),
         apellidos: document.getElementById('apellidos').value.trim(),
         email: document.getElementById('email').value.trim(),
         ocupacion: document.getElementById('ocupacion').value.trim(),
         disponibilidad: document.getElementById('disponibilidad').value,
-        motivacion: document.getElementById('motivacion').value.trim()
+        motivacion: document.getElementById('motivacion').value.trim(),
+        cv: cvFile
     };
     
     // Validaciones básicas
-    if (!formData.nombres || !formData.apellidos || !formData.email || !formData.ocupacion || !formData.disponibilidad || !formData.motivacion) {
-        alert('Por favor, completa todos los campos obligatorios. 📝💚');
+    if (!formData.nombres || !formData.apellidos || !formData.email || !formData.ocupacion || !formData.disponibilidad || !formData.motivacion || !formData.cv) {
+        alert('Por favor, completa todos los campos obligatorios, incluyendo tu hoja de vida. 📝💚');
         return;
+    }
+    
+    // Validar archivo CV
+    if (formData.cv) {
+        const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        
+        if (!allowedTypes.includes(formData.cv.type)) {
+            alert('Por favor, selecciona un archivo PDF o Word (.doc, .docx) para tu hoja de vida. 📄');
+            return;
+        }
+        
+        if (formData.cv.size > maxSize) {
+            alert('El archivo es muy grande. Por favor, selecciona un archivo menor a 5MB. 📦');
+            return;
+        }
     }
     
     // Validar formato de email
