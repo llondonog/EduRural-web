@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Únete a EduRural! - Oportunidades de Empleo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(34, 139, 34, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, #f8fff8 0%, #e8f5e8 50%, #fff8dc 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 75% 75%, rgba(34, 139, 34, 0.08) 0%, transparent 25%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .announcement-card {
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 255, 248, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 215, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            border: 4px solid #ffd700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
+            background-size: 25px 25px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-25px, -25px) rotate(360deg); }
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #2d5016 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '🌱';
+            position: absolute;
+            right: -60px;
+            top: -10px;
+            font-size: 2.5rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(10deg); }
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .main-title::before,
+        .main-title::after {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            font-size: 2rem;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        .main-title::before {
+            left: -40px;
+        }
+
+        .main-title::after {
+            right: -40px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.6; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #4a7c59;
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .urgent-banner {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            animation: pulse-banner 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-banner {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .positions-section h2 {
+            color: #2d5016;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .positions-section h2::before {
+            content: '🎯';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2rem;
+        }
+
+        .position-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 253, 240, 0.9) 100%);
+            border: 3px solid #ffd700;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .position-card:hover::before {
+            left: 100%;
+        }
+
+        .position-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .position-title {
+            color: #2d5016;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .position-emoji {
+            font-size: 1.5rem;
+        }
+
+        .position-description {
+            color: #4a7c59;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .qr-section {
+            text-align: center;
+            position: sticky;
+            top: 20px;
+        }
+
+        .qr-card {
+            background: white;
+            border: 4px solid #ffd700;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .qr-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700, #ffed4e);
+            border-radius: 25px;
+            z-index: -1;
+            animation: rotate-border 3s linear infinite;
+        }
+
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .qr-title {
+            color: #2d5016;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border: 3px solid #e8f5e8;
+            border-radius: 15px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .qr-link {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #2d5016;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            word-break: break-all;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .qr-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+            border-radius: 25px;
+            border: 2px dashed #ffd700;
+        }
+
+        .cta-title {
+            color: #2d5016;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-text {
+            color: #4a7c59;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .main-title {
+                font-size: 2.2rem;
+            }
+            
+            .logo {
+                font-size: 2.8rem;
+            }
+            
+            .announcement-card {
+                padding: 25px;
+                margin: 10px;
+            }
+            
+            .qr-section {
+                position: static;
+            }
+            
+            .main-title::before,
+            .main-title::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="announcement-card">
+            <div class="header-section">
+                <h1 class="logo">EduRural</h1>
+                <h2 class="main-title">¡Únete a Nuestro Equipo! 🚀</h2>
+                <p class="subtitle">🌟 Transforma vidas • Impacta territorios • Suma tu talento 🌟</p>
+            </div>
+
+            <div class="urgent-banner">
+                🔥 ¡BÚSQUEDA ACTIVA DE TALENTO! Oportunidades laborales disponibles 🔥
+            </div>
+
+            <div class="content-grid">
+                <div class="positions-section">
+                    <h2>Perfiles Buscados</h2>
+                    
+                    <div class="position-card">
+                        <h3 class="position-title">
+                            <span class="position-emoji">🎨</span>
+                            Diseñador(a) Instruccional
+                        </h3>
+                        <p class="position-description">
+                            Creación de experiencias de aprendizaje innovadoras y adaptación de contenidos educativos para uso offline en comunidades rurales.
+                        </p>
+                    </div>
+
+                    <div class="position-card">
+                        <h3 class="position-title">
+                            <span class="position-emoji">🤝</span>
+                            Especialista en Sostenibilidad y Alianzas
+                        </h3>
+                        <p class="position-description">
+                            Diseño del modelo de sostenibilidad del proyecto y gestión estratégica de relaciones con aliados y posibles financiadores.
+                        </p>
+                    </div>
+
+                    <div class="position-card">
+                        <h3 class="position-title">
+                            <span class="position-emoji">💻</span>
+                            Desarrollador(a) Backend – Enfoque offline
+                        </h3>
+                        <p class="position-description">
+                            Optimización de descarga y actualización de contenidos, garantía de estabilidad de la plataforma sin conexión y seguridad de datos.
+                        </p>
+                    </div>
+
+                    <div class="position-card">
+                        <h3 class="position-title">
+                            <span class="position-emoji">📊</span>
+                            Evaluador(a) de Impacto Social
+                        </h3>
+                        <p class="position-description">
+                            Diseño de herramientas de medición de impacto, análisis de resultados y elaboración de reportes para actores externos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="qr-section">
+                    <div class="qr-card">
+                        <h3 class="qr-title">📱 ¡Postúlate Ahora!</h3>
+                        <div class="qr-code">
+                            <svg width="200" height="200" viewBox="0 0 200 200">
+                                <!-- QR Code Pattern -->
+                                <rect width="200" height="200" fill="white"/>
+                                
+                                <!-- Corner squares -->
+                                <rect x="20" y="20" width="50" height="50" fill="black"/>
+                                <rect x="25" y="25" width="40" height="40" fill="white"/>
+                                <rect x="30" y="30" width="30" height="30" fill="black"/>
+                                
+                                <rect x="130" y="20" width="50" height="50" fill="black"/>
+                                <rect x="135" y="25" width="40" height="40" fill="white"/>
+                                <rect x="140" y="30" width="30" height="30" fill="black"/>
+                                
+                                <rect x="20" y="130" width="50" height="50" fill="black"/>
+                                <rect x="25" y="135" width="40" height="40" fill="white"/>
+                                <rect x="30" y="140" width="30" height="30" fill="black"/>
+                                
+                                <!-- Timing patterns -->
+                                <rect x="80" y="20" width="10" height="10" fill="black"/>
+                                <rect x="100" y="20" width="10" height="10" fill="black"/>
+                                <rect x="120" y="20" width="10" height="10" fill="black"/>
+                                
+                                <rect x="20" y="80" width="10" height="10" fill="black"/>
+                                <rect x="20" y="100" width="10" height="10" fill="black"/>
+                                <rect x="20" y="120" width="10" height="10" fill="black"/>
+                                
+                                <!-- Data modules (simplified pattern) -->
+                                <rect x="80" y="80" width="10" height="10" fill="black"/>
+                                <rect x="100" y="80" width="10" height="10" fill="black"/>
+                                <rect x="120" y="80" width="10" height="10" fill="black"/>
+                                <rect x="140" y="80" width="10" height="10" fill="black"/>
+                                <rect x="160" y="80" width="10" height="10" fill="black"/>
+                                
+                                <rect x="80" y="100" width="10" height="10" fill="black"/>
+                                <rect x="120" y="100" width="10" height="10" fill="black"/>
+                                <rect x="160" y="100" width="10" height="10" fill="black"/>
+                                
+                                <rect x="80" y="120" width="10" height="10" fill="black"/>
+                                <rect x="100" y="120" width="10" height="10" fill="black"/>
+                                <rect x="140" y="120" width="10" height="10" fill="black"/>
+                                
+                                <rect x="80" y="140" width="10" height="10" fill="black"/>
+                                <rect x="120" y="140" width="10" height="10" fill="black"/>
+                                <rect x="140" y="140" width="10" height="10" fill="black"/>
+                                <rect x="160" y="140" width="10" height="10" fill="black"/>
+                                
+                                <rect x="80" y="160" width="10" height="10" fill="black"/>
+                                <rect x="100" y="160" width="10" height="10" fill="black"/>
+                                <rect x="120" y="160" width="10" height="10" fill="black"/>
+                                <rect x="160" y="160" width="10" height="10" fill="black"/>
+                            </svg>
+                        </div>
+                        <a href="https://llondonog.github.io/EduRural-web/" target="_blank" class="qr-link">
+                            🌐 llondonog.github.io/EduRural-web
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3 class="cta-title">💚 ¿Te interesa formar parte del cambio? 💚</h3>
+                <p class="cta-text">
+                    Escanea el QR o visita nuestro sitio web para conocer más detalles<br>
+                    y completar tu proceso de postulación. <strong>¡Te esperamos!</strong>
+                </p>
+                <div style="font-size: 2rem; margin-top: 15px;">
+                    🌱 🚀 ✨ 🌟 💚
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animación adicional para elementos
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.position-card');
+            
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.transition = 'all 0.6s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 200);
+            });
+
+            // Efecto de cursor para las tarjetas
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
